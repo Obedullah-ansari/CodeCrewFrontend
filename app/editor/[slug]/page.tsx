@@ -223,6 +223,7 @@ const EditorWithTabs: React.FC = () => {
           setSubmitModal((prev) => !prev);
         } else {
           const text = `😕 Sorry your Performance is less then 50% try Again,Note: please save your code before you submmit`;
+          setTextmessage(text);
           setErrorModal((prev) => !prev);
         }
       }

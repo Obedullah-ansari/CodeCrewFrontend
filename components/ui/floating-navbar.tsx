@@ -67,7 +67,7 @@ export const FloatingNav = ({
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    let userimage = localStorage.getItem("userimage");
+    const userimage = localStorage.getItem("userimage");
     setUpdateAuth((prev)=>({...prev,image :userimage, auth:token}));
   }, []);
   

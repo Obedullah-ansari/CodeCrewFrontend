@@ -1,7 +1,7 @@
 
 export default async function forgetpassword(email :string){
     const URL = process.env.NEXT_PUBLIC_API_URL;
-    const emailData = { email: "ubaid@gmail.com" };
+    const emailData = { email: email };
     try {
         const response = await fetch(`${URL}api/v1/auth/forgetpassword`, {
           method: "POST",
