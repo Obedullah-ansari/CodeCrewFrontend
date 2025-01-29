@@ -1,101 +1,49 @@
-import Image from "next/image";
+import { CardHoverEffectDemo } from "@/custom_components/features/CardHoverEffectDemo";
+import { FloatingNavDemo } from "@/custom_components/landingpage/FloatingNavDemo";
+import Footersection from "@/custom_components/footersection/Footersection";
+import { HeroScrollDemo } from "@/custom_components/scroll/HeroScrollDemo";
+import { MYspotlight } from "@/components/ui/Spotlight";
+import { InfiniteMovingCardsDemo } from "@/custom_components/testimonials/InfiniteMovingCardsDemo";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <section id="home" className="max-sm:h-[100vh] max-sm:overflow-hidden relative  w-full  overflow-hidden">
+        <div className="w-full h-full  bg-neutral-900 dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative">
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+        <MYspotlight />
+        <FloatingNavDemo />
+        <HeroScrollDemo />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+     <div>
+
+      <div id="more" className="w-full h-auto flex justify-center items-center overflow-hidden">
+        <h1 className="lg:text-[3.2rem] md:text-[2.3rem] sm:text-[2rem] max-sm:text-[1rem]">
+          Features That Created To Enhace Your Learnign
+        </h1>
+      </div>
+
+      <CardHoverEffectDemo />
+
+
+      <div className="w-full h-auto flex-col dark:bg-grid-white/[0.2] bg-grid-black/[0.2] flex justify-center items-center overflow-hidden relative">
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_1%,black)]"></div>
+        <h1 className="lg:text-[3.3rem] md:text-[2.3rem] max-sm:text-[1.3rem]">
+          Loved by devlepors and Learners
+        </h1>
+        <span className="text-neutral-400">
+          CodCrew empowers web developers
+        </span>
+        <span className="text-neutral-400">turning beginners into pros</span>
+      </div>
+     </div>
+      <InfiniteMovingCardsDemo />
+
+     
+    <div id="contact">
+    <Footersection />
     </div>
+    </>
   );
 }

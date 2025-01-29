@@ -18,4 +18,147 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100vh;
 }
+.tick:hover{
+ background-color: rgba(50, 50, 50, 0.947);
+}
+.dropbtn:hover{
+ background-color: rgba(112, 112, 112, 0.206);
+}
+.menubar{
+  background-color: rgba(255, 254, 254, 0.986);
+  border: 1px solid rgb(32, 32, 32);
+}
+.penddingtext{
+  
+  opacity: 0.1;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+textarea::placeholder{
+  color :rgb(233, 231, 231);
+  font-weight: 550;
+  opacity: 0.8;
+}
+
+::-webkit-scrollbar {
+  width: 3px; 
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(9, 9, 9, 0.4); 
+  border-radius: 4px; /* Makes the scrollbar edges rounded */
+}
+::-webkit-scrollbar-horizontal {
+  height: 3px; 
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  top:0;
+  left: 0;
+  z-index: 0;
+}
+
+.gridItem {
+    width: full;
+    height: full;
+}
+.bgtext{
+  opacity: 0.3;
+}
+.carousel-root{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  }
+.carousel {
+  height: 100%;
+  width: 100%;
+}
+.slider-wrapper{
+  height:100%;
+  width: 100%;
+}
+.slider{
+height: 100%;
+width: 100%;
+}
+.animated{
+  height: 100%;
+width: 100%;
+}
+.heroscrollbg{
+  box-shadow: 1px 1px 12px 4px #FF7F50;
+}
+
+.animatedtext{
+  
+  color: #FF7F50;
+  text-shadow: 1px 1px 20px #FF7F50;
+}
+.ristricteddiv{
+  background-color: rgba(0, 0, 0, 0.423);
+}
+.demodivclass{
+  background-color: #0a0a0ad6;
+}
+
+progress::-webkit-progress-value {
+  background: rgb(77, 202, 226);
+}
+
+progress::-moz-progress-bar {
+  background: rgb(38, 37, 37);
+}
+progress::-webkit-progress-bar {
+  border: 0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ReactCrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ReactCrop__child-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100% !important ;
+  height: 100% !important;
+}
+.chattextarea{
+
+}
+
+
+@media screen and (max-width: 480px) {
+  .sidesearchnav{
+   background-color: rgba(0, 0, 0, 0.56);
+  }
+}
+
