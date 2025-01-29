@@ -36,7 +36,7 @@ interface taskArrayNewPerformance {
   performance: number;
 }
 
-const Question: React.FC<{}> = () => {
+const Question: React.FC = () => {
   const params = useParams();
   const id = Array.isArray(params.id) ? params.id[0] : params.id || "";
 
@@ -105,9 +105,9 @@ const Question: React.FC<{}> = () => {
 
   useEffect(() => {
     if (perfomaceArray) {
-      let completedTasks = [1],
-        sum = 0,
-        len = 0;
+      const completedTasks = [1]
+       let sum = 0;
+       let len = 0;
       for (let i = 1; i < perfomaceArray.length; i++) {
         if (perfomaceArray[i - 1].complete.trim() === "complete") {
           completedTasks.push(1);
