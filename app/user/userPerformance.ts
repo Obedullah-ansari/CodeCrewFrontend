@@ -31,7 +31,7 @@ interface Task {
     useremail: string;
     username: string;
     currentlyworking: string;
-    credits : Number;
+    credits : number;
     nextbadgecredit:number;
   }
   
