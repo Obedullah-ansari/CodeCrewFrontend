@@ -126,11 +126,7 @@ const Question: React.FC = () => {
     }
   }, [perfomaceArray]);
 
-  let image = null;
-  if (questionDetails?.problemimage) {
-    image = `${process.env.NEXT_PUBLIC_API_URL}${questionDetails.problemimage}`;
-  
-  }
+ 
 
   return (
     <>
@@ -190,10 +186,10 @@ const Question: React.FC = () => {
               </button>
             </div>
             <div className="h-[50%] max-sm:h-[48%] overflow-hidden  w-full p-2 ">
-              {image && (
-                <Image
+              {questionDetails?.problemimage && (
+                <img
                   className="w-full h-full rounded-md object-cover"
-                  src={image}
+                  src={questionDetails.problemimage}
                   alt=""
                   width={200}
                   height={200}

@@ -201,7 +201,7 @@ const EditorWithTabs: React.FC = () => {
     const token = localStorage.getItem("token");
     const problemid = localStorage.getItem("problemid");
     if (!token) {
-      setTextmessage("you are not logged 🔐 in please login to save your code");
+      setTextmessage("you are not logged 🔐 in please login to submit/run your code");
       setErrorModal((prev) => !prev);
       return;
     }

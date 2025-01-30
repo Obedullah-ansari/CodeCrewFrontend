@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
       "img.freepik.com",
       "localhost",
       "res.cloudinary.com",
+      "code-crew-backend.vercel.app"
     ],
   },
   webpack: (config, { isServer }) => {
