@@ -129,7 +129,7 @@ const Dropdown: React.FC<DropdownProps> = ({ activeFile, setActiveFile }) => {
             resourcesArray.map((links, index) => (
               <a
                 key={index}
-                href={`${process.env.NEXT_PUBLIC_API_URL}${links}`}
+                href={links}
                 className={`dropbtn bg-neutral-900 flex justify-start pl-[26%] border-b border-neutral-800 w-full p-1`}
               >
                 Image{index+1}

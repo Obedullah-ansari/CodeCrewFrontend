@@ -6,7 +6,6 @@ import "monaco-editor/esm/vs/basic-languages/html/html.contribution";
 import "monaco-editor/esm/vs/language/html/monaco.contribution";
 import "monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution";
 
-// Define Monaco environment for web workers
 self.MonacoEnvironment = {
   getWorker: function (_moduleId, label) {
     if (label === "javascript") {
@@ -67,14 +66,12 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({
     null
   );
 
-  // Update editor options if changed
   useEffect(() => {
     if (monacoInstance.current) {
       monacoInstance.current.updateOptions(options);
     }
   }, [options]);
 
-  // Initialize Monaco Editor
   useEffect(() => {
     if (!editorRef.current) return;
 
@@ -99,35 +96,24 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({
       onMount(monacoInstance.current);
     }
 
-    // Layout editor after resizing
-    const resizeObserver = new ResizeObserver(() => {
-      monacoInstance.current?.layout();
-    });
-    resizeObserver.observe(editorRef.current);
-
     // Clean up on component unmount
     return () => {
       if (monacoInstance.current) {
-        monacoInstance.current.dispose();
-        monacoInstance.current = null;
+        monacoInstance.current.dispose(); // Ensure disposal is only attempted if the instance exists
+        monacoInstance.current = null; // Set to null after disposal to avoid future issues
       }
-      resizeObserver.disconnect(); // Clean up the resize observer
     };
-  }, [language, theme, value, options, onMount]);
+  }, [language, theme]);
 
-  // Format code on codeformate prop change
   useEffect(() => {
     const formatCode = () => {
       if (monacoInstance.current) {
         monacoInstance.current.getAction("editor.action.formatDocument")?.run();
       }
     };
-    if (codeformate) {
-      formatCode();
-    }
+    formatCode();
   }, [codeformate]);
 
-  // HTML Autocompletion for tags
   const registerHTMLCompletionProvider = () => {
     monaco.languages.registerCompletionItemProvider("html", {
       provideCompletionItems: (model, position) => {
