@@ -118,7 +118,7 @@ function Searchprojects() {
 
           {/* Cards Section */}
           <div className="cards flex flex-col   h-full max-sm:w-full sm:w-[70%] md:w-[73%] lg:w-[77%] ">
-            <div className="h-full max-sm:h-[70%] w-full  flex flex-wrap  max-sm:items-center max-sm:pl-0 pl-[3%] pt-[1%] overflow-auto max-sm:flex-col ">
+            <div className="h-full max-sm:h-full w-full  flex flex-wrap  max-sm:items-center max-sm:pl-0 pl-[3%] pt-[1%] overflow-auto max-sm:flex-col ">
               {cardDetails.length > 0 &&
                 cardDetails.map((cardinfo, index) => (
                   <GlareCard
@@ -132,7 +132,7 @@ function Searchprojects() {
                   />
                 ))}
             </div>
-            <div className="h-[30%] items-start max-sm:flex justify-center hidden  w-full ">
+            <div className="h-[20%] items-start max-sm:flex justify-center hidden  w-full ">
               <h1>swap left</h1>
             </div>
           </div>

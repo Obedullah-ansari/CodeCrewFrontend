@@ -86,7 +86,7 @@ const GlareCard: React.FC<{
           </GlareCardBody>
         </Link>
         {active.trim() === "commingsoon" && (
-          <span className="penddingtext text-[1.3rem] font-semibold absolute top-5 left-5">
+          <span className="penddingtext text-[1.3rem] font-semibold absolute max-sm:left-28 top-5 left-5">
             Coming soon...
           </span>
         )}

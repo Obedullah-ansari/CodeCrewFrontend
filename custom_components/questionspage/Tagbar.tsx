@@ -3,7 +3,7 @@ import Image from "next/image";
 import htmllogo from "@/public/html-5.png";
 import csslogo from "@/public/css-3.png";
 import jslogo from "@/public/js.png"
-import closeburgmenu from "@/public/menu.png";
+import closeburgmenu from "@/public/burgermenu.png";
 interface tagtypes {
   open :()=>void
   tagArray :[string]|undefined

@@ -117,8 +117,6 @@ const EditorWithTabs: React.FC = () => {
     fetchCodeSolution();
   }, []);
 
-
-
   useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem("token");
@@ -126,17 +124,15 @@ const EditorWithTabs: React.FC = () => {
 
       // Fetch user-saved code
       const fetchUserSavedCode = async () => {
-        console.log("savedcodeinside")
         const URL = `${process.env.NEXT_PUBLIC_API_URL}api/v1/usercode/getusercode/${id}`;
         const response = await usercodefun({ URL, token });
         return response || [];
       };
+
       const problemid = localStorage.getItem("problemid");
 
       // Fetch initial code
       const fetchInitialCode = async () => {
-
-        console.log("inside")
         const URL = `${process.env.NEXT_PUBLIC_API_URL}api/v1/solutions/initialcode/${problemid}`;
         const response = await initialCode({ URL, token });
         return response || [];
@@ -155,6 +151,9 @@ const EditorWithTabs: React.FC = () => {
         console.error("Error fetching data:", error);
       }
     };
+     setTimeout(() => {
+      setFiles((prev) => ({ ...prev }));
+    }, 0);
 
     fetchData();
   }, [id]);
@@ -178,6 +177,7 @@ const EditorWithTabs: React.FC = () => {
         js: jscode,
       });
     }
+
   }, [userCode]);
 
   const saveCode = async () => {
@@ -201,7 +201,9 @@ const EditorWithTabs: React.FC = () => {
     const token = localStorage.getItem("token");
     const problemid = localStorage.getItem("problemid");
     if (!token) {
-      setTextmessage("you are not logged 🔐 in please login to submit/run your code");
+      setTextmessage(
+        "you are not logged 🔐 in please login to submit/run your code"
+      );
       setErrorModal((prev) => !prev);
       return;
     }
@@ -217,7 +219,6 @@ const EditorWithTabs: React.FC = () => {
       if (response.ok) {
         const data = await response.json();
         if (data.message === "success") {
-          console.log("iniside");
           const text = `🎉 Congratulations! You've successfully completed the task! 🚀 Keep up the great work`;
           setTextmessage(text);
           setSubmitModal((prev) => !prev);
@@ -243,6 +244,8 @@ const EditorWithTabs: React.FC = () => {
     codeSolutions?.demoimage?.endsWith(".mov") ||
     codeSolutions?.demoimage?.endsWith(".mp4") ||
     codeSolutions?.demoimage?.endsWith(".webm");
+
+  
 
   return (
     <div className="w-full overflow-hidden flex h-[100vh]">
@@ -284,18 +287,20 @@ const EditorWithTabs: React.FC = () => {
 
         <div className="h-full   w-full  overflow-hidden bg-neutral-800 p-2">
           <div className="h-full flex justify-center items-center rounded-lg relative   overflow-hidden w-full ">
-            <MonacoEditor
-              codeformate={basicStatechange.codeformat}
-              value={files[activeFile]}
-              onChange={handleFileChange}
-              language={getLanguage(activeFile)}
-              theme="vs-dark"
-              height="100%"
-              width="100%"
-              options={{
-                fontSize,
-              }}
-            />
+            {files && (
+              <MonacoEditor
+                codeformate={basicStatechange.codeformat}
+                value={files[activeFile]}
+                onChange={handleFileChange}
+                language={getLanguage(activeFile)}
+                theme="vs-dark"
+                height="100%"
+                width="100%"
+                options={{
+                  fontSize,
+                }}
+              />
+            )}
             {basicStatechange.demo && (
               <div className=" w-full h-full z-[100] absolute rounded-lg flex justify-center items-center  bg-neutral-800">
                 {isVideo ? (
@@ -309,7 +314,11 @@ const EditorWithTabs: React.FC = () => {
                     Your browser does not support the video tag.
                   </video>
                 ) : (
-                  <img src={codeSolutions?.demoimage} className="rounded-md" alt="Preview" />
+                  <img
+                    src={codeSolutions?.demoimage}
+                    className="rounded-md"
+                    alt="Preview"
+                  />
                 )}
               </div>
             )}
@@ -338,7 +347,10 @@ const EditorWithTabs: React.FC = () => {
         />
       )}
       {initialDisplay && (
-        <DemoInstructions image={codeSolutions?.demoimage} democlose={handleInitialDisplay} />
+        <DemoInstructions
+          image={codeSolutions?.demoimage}
+          democlose={handleInitialDisplay}
+        />
       )}
 
       {submitModal && (

@@ -107,8 +107,8 @@ export const FloatingNav = ({
       <motion.div
         className={`${
           isScrolled
-            ? "lg:pl-[40%] sm:pl-[48%] md:pl-[50%] max-sm:pl-[20%]"
-            : "max-sm:pl-[45%] sm:pl-[60%] md:pl-[65%] lg:pl-[75%]"
+            ? "lg:pl-[40%] sm:pl-[40%] md:pl-[45%] max-sm:pl-[20%]"
+            : "max-sm:pl-[26%] sm:pl-[58%] md:pl-[63%] lg:pl-[75%]"
         } transition-all duration-500`} // Added transition for padding
       >
         {updateAuth.auth ? (
@@ -128,8 +128,8 @@ export const FloatingNav = ({
         ) : (
           <Link
             href="/auth"
-            className={`p-3 rounded-full ${
-              isScrolled ? "bg-transparent" : "bg-orange-500"
+            className={`p-3 rounded-full  ${
+              isScrolled ? "bg-transparent text-orange-500" : "bg-orange-500"
             }`}
           >
             SignUp

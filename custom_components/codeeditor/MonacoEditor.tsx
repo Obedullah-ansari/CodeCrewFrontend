@@ -37,6 +37,10 @@ self.MonacoEnvironment = {
     );
   },
 };
+interface usercodeType {
+  code: string;
+  codetype: string;
+}
 
 interface MonacoEditorProps {
   codeformate: boolean;
@@ -60,7 +64,10 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({
   width = "100%",
   options = {},
   onMount,
+
 }) => {
+
+
   const editorRef = useRef<HTMLDivElement | null>(null);
   const monacoInstance = useRef<monaco.editor.IStandaloneCodeEditor | null>(
     null
@@ -103,7 +110,7 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({
         monacoInstance.current = null; // Set to null after disposal to avoid future issues
       }
     };
-  }, [language, theme]);
+  }, [ options,language]);
 
   useEffect(() => {
     const formatCode = () => {

@@ -25,6 +25,16 @@ const Progressbar: React.FC<{
   if(ristrict ===1 && userArray.complete.trim()==="complete" ){
     complete = "completed"
   }
+
+  const handelLoading = () => {
+    setShowLoading(true); 
+  
+    const timeoutId = setTimeout(() => {
+      setShowLoading(false); 
+    }, 3000);
+  
+    return () => clearTimeout(timeoutId); 
+  };
  
 
 
@@ -47,7 +57,7 @@ const Progressbar: React.FC<{
             <span>loading...</span>
           ) : (
             <a
-              onClick={() => setShowLoading((prev) => !prev)}
+              onClick={handelLoading}
               href={url}
               className="p-1 max-sm:text-[0.85rem] text-neutral-300  border border-neutral-700 rounded-md"
             >

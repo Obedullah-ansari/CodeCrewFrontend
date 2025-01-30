@@ -17,22 +17,22 @@ const DemoInstructions: React.FC<{
     <>
       <div className="demodivclass w-full h-full flex max-sm:flex-col absolute z-[100]">
         {/* Instructions Section */}
-        <div className="relative w-[40%] h-full max-sm:h-[50%] max-sm:w-full p-[2%] flex flex-col text-neutral-400 bg-neutral-900 justify-start pt-[5%] lg:text-[1.1rem] items-center gap-3">
-          <span className="text-[2rem]">Basic Instructions</span>
+        <div className="relative w-[40%] h-full max-sm:h-auto max-sm:w-full p-[2%] flex flex-col text-neutral-400 bg-neutral-900 justify-start pt-[5%] lg:text-[1.1rem] items-center gap-3">
+          <span className="text-[2rem] max-sm:text-[1.4rem] ">Basic Instructions</span>
           <span>
-            <span className="text-yellow-500 text-[1.3rem]">Save Your Progress:</span> Save your code for future reference by clicking the Save button 
+            <span className="text-yellow-500 text-[1.3rem] max-sm:text-[1rem]">Save Your Progress:</span> Save your code for future reference by clicking the Save button 
             <SaveAll style={{display: "inline"  }}/>
           </span>
           <span>
-            <span className="text-yellow-500 text-[1.3rem]">Need Help?:</span> If you're stuck, you can view hints or solutions by clicking the 
+            <span className="text-yellow-500 text-[1.3rem] max-sm:text-[1rem]">Need Help?:</span> If you're stuck, you can view hints or solutions by clicking the 
             <Lightbulb style={{display: "inline"}} />
           </span>
           <span>
-            <span className="text-yellow-500 text-[1.3rem]">Format Code:</span> Quickly format your code by clicking the Code Format button 
+            <span className="text-yellow-500 text-[1.3rem] max-sm:text-[1rem]">Format Code:</span> Quickly format your code by clicking the Code Format button 
             <Code style={{display: "inline" }} /> or using the shortcut Ctrl or Cmd + Shift + P.
           </span>
           <span>
-            <span className="text-yellow-500 text-[1.3rem]">Submit Code:</span> 
+            <span className="text-yellow-500 text-[1.3rem] max-sm:text-[1rem]">Submit Code:</span> 
             <Image className="w-[1.7rem] p-1 inline" src={submitcode} alt="Submit" /> Once you've completed coding, submit your solution to receive a performance percentage. Submission is required to proceed to the next task.
           </span>
           <button className="absolute top-0 right-0 max-sm:block hidden" onClick={democlose}>
@@ -41,7 +41,7 @@ const DemoInstructions: React.FC<{
         </div>
 
         {/* Preview Section */}
-        <div className="relative w-[60%] max-sm:h-[50%] max-sm:w-full h-full bg-cover flex flex-col justify-center items-center gap-3 p-2">
+        <div className="relative w-[60%] max-sm:h-auto max-sm:w-full h-full bg-cover flex flex-col justify-center items-center gap-3 p-2">
           <button className="absolute top-0 right-0 max-sm:hidden" onClick={democlose}>
             <Image className="w-[1.9rem] p-1" src={close} alt="Close" />
           </button>
