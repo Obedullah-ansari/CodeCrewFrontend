@@ -10,7 +10,6 @@ import { Provider } from "react-redux";
 import store from "@/redux/store";
 
 
-
 interface Task {
   taskId: string;
   complete: string;
@@ -181,9 +180,9 @@ function UserDashBoard() {
                   <div className="w-full flex  p-1 flex-nowrap ">
                     {userPerformance?.badges &&
                       userPerformance.badges.map((badge, index) => (
-                        <Image
+                        <img
                           key={index}
-                          src={`${process.env.NEXT_PUBLIC_API_URL}${badge}`}
+                          src={badge}
                           alt=""
                           width={200}
                           height={100}

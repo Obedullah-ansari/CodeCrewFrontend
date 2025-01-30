@@ -4,7 +4,7 @@ import close from "@/public/close.png";
 // import hint from "@/public/solution.png";
 // import codeformat from "@/public/div.png";
 // import savecode from "@/public/save.png";
-import { ZoomIn,ZoomOut,Code,File,SaveAll ,Radio , CircleHelp,Lightbulb} from "lucide-react";
+import { Code,SaveAll ,Lightbulb} from "lucide-react";
 import submitcode from "@/public/rotate.png";
 
 const DemoInstructions: React.FC<{

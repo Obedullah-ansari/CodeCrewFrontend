@@ -117,10 +117,7 @@ const EditorWithTabs: React.FC = () => {
     fetchCodeSolution();
   }, []);
 
-  let demoimage = undefined;
-  if (codeSolutions?.demoimage) {
-    demoimage = `${process.env.NEXT_PUBLIC_API_URL}${codeSolutions?.demoimage}`;
-  }
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -129,6 +126,7 @@ const EditorWithTabs: React.FC = () => {
 
       // Fetch user-saved code
       const fetchUserSavedCode = async () => {
+        console.log("savedcodeinside")
         const URL = `${process.env.NEXT_PUBLIC_API_URL}api/v1/usercode/getusercode/${id}`;
         const response = await usercodefun({ URL, token });
         return response || [];
@@ -137,6 +135,8 @@ const EditorWithTabs: React.FC = () => {
 
       // Fetch initial code
       const fetchInitialCode = async () => {
+
+        console.log("inside")
         const URL = `${process.env.NEXT_PUBLIC_API_URL}api/v1/solutions/initialcode/${problemid}`;
         const response = await initialCode({ URL, token });
         return response || [];
@@ -305,11 +305,11 @@ const EditorWithTabs: React.FC = () => {
                     height="auto"
                     controls
                   >
-                    <source src={demoimage} type="video/mp4" />
+                    <source src={codeSolutions?.demoimage} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 ) : (
-                  <img src={demoimage} className="rounded-md" alt="Preview" />
+                  <img src={codeSolutions?.demoimage} className="rounded-md" alt="Preview" />
                 )}
               </div>
             )}
@@ -338,7 +338,7 @@ const EditorWithTabs: React.FC = () => {
         />
       )}
       {initialDisplay && (
-        <DemoInstructions image={demoimage} democlose={handleInitialDisplay} />
+        <DemoInstructions image={codeSolutions?.demoimage} democlose={handleInitialDisplay} />
       )}
 
       {submitModal && (
