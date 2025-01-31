@@ -12,9 +12,12 @@ export default function Home() {
         id="home"
         className="max-sm:h-[100vh] max-sm:overflow-hidden relative  w-full  overflow-hidden"
       >
-        <MYspotlight />
-        <FloatingNavDemo />
-        <HeroScrollDemo />
+        <div className="h-full w-full bg-neutral-900  bg-dot-white/[0.4] relative ">
+          <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-neutral-950 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
+          <MYspotlight />
+          <FloatingNavDemo />
+          <HeroScrollDemo />
+        </div>
       </section>
       <div>
         <div
@@ -28,18 +31,17 @@ export default function Home() {
 
         <CardHoverEffectDemo />
 
-
-       <div className="w-full flex flex-col justify-center  items-center">
-       <h1 className="lg:text-[3.3rem] md:text-[2.3rem] max-sm:text-[1.3rem]">
-          Loved by devlepors and Learners
-        </h1>
-        <span className="text-neutral-400">
-          CodCrew empowers web developers
-        </span>
-        <span className="text-neutral-400">turning beginners into pros</span>
+        <div className="w-full flex flex-col justify-center  items-center">
+          <h1 className="lg:text-[3.3rem] md:text-[2.3rem] max-sm:text-[1.3rem]">
+            Loved by devlepors and Learners
+          </h1>
+          <span className="text-neutral-400">
+            CodCrew empowers web developers
+          </span>
+          <span className="text-neutral-400">turning beginners into pros</span>
+        </div>
       </div>
-       </div>
-     
+
       <InfiniteMovingCardsDemo />
 
       <div id="contact">
