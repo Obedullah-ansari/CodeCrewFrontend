@@ -4,7 +4,7 @@
 
 
 body {
-  background-color: black;
+  background-color: black !important;
   color :rgba(255, 255, 255, 0.98);
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;

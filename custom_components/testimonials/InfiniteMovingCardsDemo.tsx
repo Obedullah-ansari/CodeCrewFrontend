@@ -6,7 +6,8 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export function InfiniteMovingCardsDemo() {
   return (
-    <div className="h-[30rem]  rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+    <div className="h-[30rem]  rounded-md flex flex-col antialiased bg-black bg-grid-white/[0.1] items-center justify-center relative overflow-hidden">
+    <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-neutral-950 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
       <InfiniteMovingCards
         items={testimonials}
         direction="right"

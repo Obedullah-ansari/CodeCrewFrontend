@@ -91,7 +91,7 @@ export const Card = ({
     }}
     className="heroscrollbg lg:max-w-7xl md:max-w-6xl max-sm:w-full  -mt-12 mx-auto max-sm:h-[20rem] lg:h-[40rem] md:h-[35rem] w-full border-4 border-neutral-300 p-2 md:p-3 bg-neutral-800 rounded-[30px]  overflow-hidden "
   >
-    <div className=" h-full w-full  overflow-hidden rounded-2xl  md:rounded-2xl  ">
+    <div className=" h-full w-full  overflow-hidden rounded-2xl object-cover  md:rounded-2xl  ">
       {children}
     </div>
   </motion.div>
