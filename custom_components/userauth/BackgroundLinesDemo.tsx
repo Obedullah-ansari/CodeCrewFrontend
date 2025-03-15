@@ -42,7 +42,7 @@ export function BackgroundLinesDemo() {
     setError(""); 
 
     try {
-      const data = await loginfun(formData); 
+      const data = await auth(formData); 
       if (data) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("userId", data.data.newUser._id);

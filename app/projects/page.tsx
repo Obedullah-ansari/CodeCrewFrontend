@@ -1,7 +1,7 @@
 "use client";
 import Sidesearchnav from "@/custom_components/projectpage/Sidesearchnav";
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
 import GlareCard from "@/custom_components/cards/GlareCard";
 import projectsdetails from "@/app/projects/projectsdetails";
 import { Provider } from "react-redux";
@@ -9,7 +9,7 @@ import store from "@/redux/store";
 import Image from "next/image";
 import searclogo from "@/public/search.png";
 import closeburgmenu from "@/public/menu.png";
-import cross from "@/public/close (1).png"
+import cross from "@/public/close (1).png";
 interface projectcarddetails {
   _id: string;
   projectTitle: string;
@@ -71,7 +71,7 @@ function Searchprojects() {
               className="text-[1.2rem] left-0 absolute top-0 hidden max-sm:block"
               onClick={() => setSideBarOpen((prev) => !prev)}
             >
-               <Image src={closeburgmenu} alt="" className="w-[2rem] m-1 " />
+              <Image src={closeburgmenu} alt="" className="w-[2rem] m-1 " />
             </button>
             <h1 className="text-[2rem] max-sm:text-[1.2rem] max-sm:pl-3">
               Learn, Build, and Love Every Step
@@ -96,7 +96,11 @@ function Searchprojects() {
                 className=" max-sm:block hidden"
                 onClick={() => setSideBarOpen((prev) => !prev)}
               >
-                <Image src={cross} alt="" className="w-[1.4rem] bg-white rounded-lg m-2 " />
+                <Image
+                  src={cross}
+                  alt=""
+                  className="w-[1.4rem] bg-white rounded-lg m-2 "
+                />
               </button>
 
               <div className="flex h-[70%]  rounded-md border border-neutral-800 items-center justify-center w-[85%] max-sm:[90%]">
@@ -119,7 +123,7 @@ function Searchprojects() {
           {/* Cards Section */}
           <div className="cards flex flex-col   h-full max-sm:w-full sm:w-[70%] md:w-[73%] lg:w-[77%] ">
             <div className="h-full max-sm:h-full w-full  flex flex-wrap  max-sm:items-center max-sm:pl-0 pl-[3%] pt-[1%] overflow-auto max-sm:flex-col ">
-              {cardDetails.length > 0 &&
+              {cardDetails.length > 0 ? (
                 cardDetails.map((cardinfo, index) => (
                   <GlareCard
                     key={index}
@@ -130,7 +134,17 @@ function Searchprojects() {
                     projectdescription={cardinfo.projectdescription}
                     active={cardinfo.active}
                   />
-                ))}
+                ))
+              ) : (
+                <div className="flex h-full w-full justify-center items-center">
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1, transition: { duration: 0.5, repeat:Infinity, ease:easeInOut } }}
+                  >
+                    Loading...
+                  </motion.span>
+                </div>
+              )}
             </div>
             <div className="h-[20%] items-start max-sm:flex justify-center hidden  w-full ">
               <h1>swap left</h1>

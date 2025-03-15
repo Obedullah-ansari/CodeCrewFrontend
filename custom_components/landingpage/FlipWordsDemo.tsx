@@ -13,7 +13,7 @@ export function FlipWordsDemo() {
         </div>
         <FlipWords words={words} /> 
         <p className="max-sm:text-[0.9rem] sm:text-[0.9rem] lg:text-[1.1rem] font-normal text-gray-300">CodeCrew helps you master web development with beginner friendly project based learning from zero to hero</p>
-        <Link href="/projects" className="p-1 m-1 max-sm:w-[20%] hover:bg-[#FF7F50] text-white w-[10%] text-[1rem] border border-[#FF7F50] rounded-md">lets go</Link>
+        <Link href="/projects" className="p-2 m-1 max-sm:w-[20%] hover:bg-[#FF7F50] text-white w-[10%] text-[1rem] border border-[#FF7F50] rounded-md">lets go</Link>
       </div>
     </div>
   );

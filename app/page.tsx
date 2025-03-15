@@ -13,7 +13,7 @@ export default function Home() {
         className="max-sm:h-[100vh] max-sm:overflow-hidden relative  w-full  overflow-hidden"
       >
         <div className="h-full w-full bg-neutral-900  bg-dot-white/[0.4] relative ">
-          <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-neutral-950 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
+          <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-neutral-950 [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)]"></div>
           <MYspotlight />
           <FloatingNavDemo />
           <HeroScrollDemo />
