@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import uparrow from "@/public/right-chevron.png";
 import resources from "@/app/editor/resources";
-
+import { CodeXml, Hash, Braces } from "lucide-react";
 interface DropdownProps {
   activeFile: "html" | "css" | "js";
   setActiveFile: React.Dispatch<React.SetStateAction<"html" | "css" | "js">>;
@@ -54,12 +54,23 @@ const Dropdown: React.FC<DropdownProps> = ({ activeFile, setActiveFile }) => {
     fetchingResources();
   }, []);
 
+  const handelfilelogo = (type: string) => {
+    if (type === "html") {
+      return <CodeXml size={20} style={{ color: "#e74c3c" }} />;
+    } else if (type === "css") {
+      return <Hash size={20} style={{ color: "#85c1e9" }} />;
+    } else {
+      return <Braces size={20} style={{ color: "#f4d03f" }} />;
+    }
+  };
 
   return (
     <div className="w-full h-auto">
       <div className="flex pl-2 bg-neutral-700 w-full items-center">
         <button
-          onClick={() => setOpenDiv((prev) => ({ ...prev, fornt: !prev.fornt }))}
+          onClick={() =>
+            setOpenDiv((prev) => ({ ...prev, fornt: !prev.fornt }))
+          }
           className="w-[15%] h-full flex pr-2 justify-end items-center"
         >
           <motion.div
@@ -85,22 +96,25 @@ const Dropdown: React.FC<DropdownProps> = ({ activeFile, setActiveFile }) => {
       >
         <div className="w-full flex items-start flex-col h-full">
           {["html", "css", "js"].map((file) => (
-            <button
-              key={file}
-              className={`dropbtn bg-neutral-900 flex justify-start pl-[26%] border-b border-neutral-800 w-full p-1 ${
-                activeFile === file ? "text-yellow-500" : ""
-              }`}
-              onClick={() => setActiveFile(file as "html" | "css" | "js")}
-            >
-              {`index.${file}`}
-            </button>
+            <div key={file} className="w-full h-full flex gap-3 items-center">
+              <button
+                className={`dropbtn bg-neutral-900 flex justify-start pl-[26%] border-b border-neutral-800 w-full p-1 ${
+                  activeFile === file ? "text-yellow-500" : ""
+                }`}
+                onClick={() => setActiveFile(file as "html" | "css" | "js")}
+              >
+               {handelfilelogo(file)}{" "}{`index.${file}`}
+              </button>
+            </div>
           ))}
         </div>
       </motion.div>
 
       <div className="flex pl-2 bg-neutral-700 w-full items-center">
         <button
-          onClick={() => setOpenDiv((prev) => ({ ...prev, resour: !prev.resour }))}
+          onClick={() =>
+            setOpenDiv((prev) => ({ ...prev, resour: !prev.resour }))
+          }
           className="w-[15%] h-full flex pr-2 justify-end items-center"
         >
           <motion.div
@@ -132,7 +146,7 @@ const Dropdown: React.FC<DropdownProps> = ({ activeFile, setActiveFile }) => {
                 href={links}
                 className={`dropbtn bg-neutral-900 flex justify-start pl-[26%] border-b border-neutral-800 w-full p-1`}
               >
-                Image{index+1}
+                Image{index + 1}
               </a>
             ))}
         </div>

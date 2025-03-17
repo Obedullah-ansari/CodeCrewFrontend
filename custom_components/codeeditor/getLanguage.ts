@@ -1,5 +1,5 @@
 
-const   getLanguage = (fileType: string): string => {
+const   getLanguage = (fileType: string|undefined): string => {
     switch (fileType) {
       case "html":
         return "html";

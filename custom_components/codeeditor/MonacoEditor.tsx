@@ -37,10 +37,10 @@ self.MonacoEnvironment = {
     );
   },
 };
-interface usercodeType {
-  code: string;
-  codetype: string;
-}
+// interface usercodeType {
+//   code: string;
+//   codetype: string;
+// }
 
 interface MonacoEditorProps {
   codeformate: boolean;
@@ -64,10 +64,7 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({
   width = "100%",
   options = {},
   onMount,
-
 }) => {
-
-
   const editorRef = useRef<HTMLDivElement | null>(null);
   const monacoInstance = useRef<monaco.editor.IStandaloneCodeEditor | null>(
     null
@@ -103,14 +100,18 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({
       onMount(monacoInstance.current);
     }
 
-    // Clean up on component unmount
+ 
+    // Cleanup function with safety checks
     return () => {
-      if (monacoInstance.current) {
-        monacoInstance.current.dispose(); // Ensure disposal is only attempted if the instance exists
-        monacoInstance.current = null; // Set to null after disposal to avoid future issues
+      if (
+        monacoInstance.current &&
+        !monacoInstance.current.getModel()?.isDisposed()
+      ) {
+        monacoInstance.current.dispose();
+        monacoInstance.current = null;
       }
     };
-  }, [ options,language]);
+  }, [ language]);
 
   useEffect(() => {
     const formatCode = () => {
