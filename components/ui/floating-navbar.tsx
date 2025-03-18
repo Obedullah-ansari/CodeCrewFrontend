@@ -70,7 +70,6 @@ export const FloatingNav = ({
     const userimage = localStorage.getItem("userimage");
     setUpdateAuth((prev)=>({...prev,image :userimage, auth:token}));
   }, []);
-  
 
   return (
     <motion.div

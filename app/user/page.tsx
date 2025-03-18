@@ -73,6 +73,7 @@ function UserDashBoard() {
       const userdata = await userPerformanceData({ URL, token });
       if (userdata) {
         setUserPerformance(userdata);
+        localStorage.setItem("userimage",userdata.userimage)
       }
     };
     handelUserPerformanceData();

@@ -42,6 +42,7 @@ self.MonacoEnvironment = {
 //   codetype: string;
 // }
 
+
 interface MonacoEditorProps {
   codeformate: boolean;
   value: string;
@@ -70,15 +71,11 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({
     null
   );
 
-  useEffect(() => {
-    if (monacoInstance.current) {
-      monacoInstance.current.updateOptions(options);
-    }
-  }, [options]);
 
   useEffect(() => {
     if (!editorRef.current) return;
 
+    // Initialize Monaco Editor
     monacoInstance.current = monaco.editor.create(editorRef.current, {
       value,
       language,
@@ -100,18 +97,17 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({
       onMount(monacoInstance.current);
     }
 
- 
-    // Cleanup function with safety checks
     return () => {
-      if (
-        monacoInstance.current &&
-        !monacoInstance.current.getModel()?.isDisposed()
-      ) {
-        monacoInstance.current.dispose();
-        monacoInstance.current = null;
-      }
+      monacoInstance.current?.dispose();
+      monacoInstance.current = null;
     };
-  }, [ language]);
+  }, [language]);
+
+  useEffect(() => {
+    if (monacoInstance.current && value !== monacoInstance.current.getValue()) {
+      monacoInstance.current.setValue(value);
+    }
+  }, [value]);
 
   useEffect(() => {
     const formatCode = () => {

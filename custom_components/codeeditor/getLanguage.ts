@@ -8,7 +8,7 @@ const   getLanguage = (fileType: string|undefined): string => {
       case "js":
         return "javascript";
       default:
-        return "plaintext";
+        return "html";
     }
   };
   
