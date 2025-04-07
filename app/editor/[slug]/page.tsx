@@ -101,7 +101,6 @@ const EditorWithTabs: React.FC = () => {
   >();
   const [activeFile, setActiveFile] = useState<"html" | "css" | "js">("html");
   const [userCode, setUserCode] = useState<usercodeType[]>();
-  const [fontSize, setFontSize] = useState<number>(18);
   const handleFileChange = (updatedCode: string) => {
     setFiles((prevFiles) => ({ ...prevFiles, [activeFile]: updatedCode }));
   };
@@ -261,7 +260,6 @@ const EditorWithTabs: React.FC = () => {
         >
           <Sidebuttons
             setBasicStatechange={setBasicStatechange}
-            setFontSize={setFontSize}
             codeSavedbtn={() => saveCode()}
             codeSubmit={submitCode}
           />
@@ -297,7 +295,9 @@ const EditorWithTabs: React.FC = () => {
                 height="100%"
                 width="100%"
                 options={{
-                  fontSize,
+                  fontSize: 18, 
+                  fontFamily: 'Fira Code, monospace', 
+                  lineHeight: 22, 
                 }}
               />
             )}

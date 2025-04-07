@@ -37,10 +37,6 @@ self.MonacoEnvironment = {
     );
   },
 };
-// interface usercodeType {
-//   code: string;
-//   codetype: string;
-// }
 
 
 interface MonacoEditorProps {

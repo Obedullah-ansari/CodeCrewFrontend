@@ -3,7 +3,7 @@ import Image from "next/image";
 import submitcode from "@/public/rotate.png";
 import chatlogo from "@/public/chat.png";
 import { useEffect } from "react";
-import { ZoomIn,ZoomOut,Code,File,SaveAll ,Radio , CircleHelp,Lightbulb} from "lucide-react";
+import { Code,File,SaveAll ,Radio , CircleHelp,Lightbulb} from "lucide-react";
 
 
 interface typecheckingusestate {
@@ -20,12 +20,10 @@ interface typecheckingusestate {
     }>
   >;
 
-  setFontSize: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Sidebuttons: React.FC<typecheckingusestate> = ({
   setBasicStatechange,
-  setFontSize,
   codeSavedbtn,
   codeSubmit,
 }) => {
@@ -78,21 +76,6 @@ const Sidebuttons: React.FC<typecheckingusestate> = ({
         >
         <Radio size={30} style={{color :"#a3a3a3 "}}/>
         </button>
-        <button
-          title="Zoomin"
-          className=" "
-          onClick={() => setFontSize((size) => Math.min(size + 2, 30))}
-        >
-        <ZoomIn size={30} style={{color :"#a3a3a3 "}}/>
-        </button>
-        <button
-          title="Zoomout"
-          className=""
-          onClick={() => setFontSize((size) => Math.max(size - 2, 10))}
-        >
-          <ZoomOut size={30} style={{color :"#a3a3a3 "}}/>
-        </button>
-
         <button
           title="Prettier"
           onClick={() =>
